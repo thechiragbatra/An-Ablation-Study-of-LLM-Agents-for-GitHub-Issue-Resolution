@@ -1,0 +1,21 @@
+# A1: single-shot + sandbox test feedback, retry up to N attempts.
+name: a1-fixture
+variant: A1
+model: claude-opus-5-5
+effort: high
+max_tokens: 16000
+K: 1
+D: 0
+N: 3
+seed: 0
+max_localized_files: 5
+critic: {enabled: false, uses_sandbox: false}
+budget: {per_run_usd: 1.00, per_experiment_usd: 5.00}
+sandbox:
+  backend: docker
+  image: ablation-fixture:py3.12
+  timeout_s: 300
+  mem_limit: 2g
+  cpus: 2.0
+  network: false
+trace_dir: out/traces

@@ -1,0 +1,26 @@
+# USD per 1M tokens, Anthropic first-party API (cached 2026-10-06).
+# Re-check https://platform.claude.com/docs/en/about-claude/pricing before full runs.
+# cache_write is the 5-minute TTL rate (1.25x input).
+# Thinking tokens are billed as output and are included in usage.output_tokens.
+models:
+  claude-opus-5-5:
+    input: 4.00
+    output: 20.00
+    cache_read: 0.20
+    cache_write: 5.00
+  claude-sonnet-5-5:
+    input: 2.00
+    output: 10.00
+    cache_read: 0.20
+    cache_write: 2.50
+  claude-haiku-5-5:
+    input: 0.10
+    output: 0.50
+    cache_read: 0.01
+    cache_write: 0.125
+  # Deterministic test double; never used outside tests/.
+  fake-llm:
+    input: 1.00
+    output: 1.00
+    cache_read: 0.0
+    cache_write: 0.0

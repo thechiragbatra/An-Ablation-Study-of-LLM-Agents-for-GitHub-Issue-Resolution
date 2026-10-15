@@ -1,0 +1,22 @@
+# Evaluation config (SWE-bench). Identical to the others except for wiring knobs.
+# A3: Architect -> Critic -> reflect -> revise, max depth D. (Phase 2)
+name: a3-eval
+variant: A3
+model: claude-opus-5-5
+effort: high
+max_tokens: 16000
+K: 3
+D: 2
+N: 1
+seed: 0
+max_localized_files: 5
+critic: {enabled: true, uses_sandbox: false}
+budget: {per_run_usd: 3.00, per_experiment_usd: 300.00}  # placeholders: set from dev-set measurements before preregistration
+sandbox:
+  backend: docker
+  image: per-instance  # SWE-bench rows carry their own environment image
+  timeout_s: 900
+  mem_limit: 4g
+  cpus: 2.0
+  network: false
+trace_dir: out/traces  # overridden per experiment by eval.run_experiment

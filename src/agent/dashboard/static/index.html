@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ablation Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#/" class="brand">Ablation Dashboard</a>
+    <span class="subtitle">Architect/Critic study · local traces · read-only</span>
+    <button id="refresh" type="button" class="btn">Refresh</button>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <dialog id="artifact-modal" aria-labelledby="modal-title">
+    <div class="modal-head">
+      <h2 id="modal-title">LLM call</h2>
+      <button id="modal-close" type="button" class="btn">Close</button>
+    </div>
+    <div id="modal-body"></div>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# A2: Architect proposes K candidates, Critic selects one. (Phase 2)
+name: a2-fixture
+variant: A2
+model: claude-opus-5-5
+effort: high
+max_tokens: 16000
+K: 3
+D: 0
+N: 1
+seed: 0
+max_localized_files: 5
+critic: {enabled: true, uses_sandbox: false}
+budget: {per_run_usd: 1.00, per_experiment_usd: 5.00}
+sandbox:
+  backend: docker
+  image: ablation-fixture:py3.12
+  timeout_s: 300
+  mem_limit: 2g
+  cpus: 2.0
+  network: false
+trace_dir: out/traces

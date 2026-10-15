@@ -1,0 +1,22 @@
+# Evaluation config (SWE-bench). Identical to the others except for wiring knobs.
+# A0: single-shot patch generation, validated once in the sandbox.
+name: a0-eval
+variant: A0
+model: claude-opus-5-5
+effort: high
+max_tokens: 16000
+K: 1
+D: 0
+N: 1
+seed: 0
+max_localized_files: 5
+critic: {enabled: false, uses_sandbox: false}
+budget: {per_run_usd: 3.00, per_experiment_usd: 300.00}  # placeholders: set from dev-set measurements before preregistration
+sandbox:
+  backend: docker
+  image: per-instance  # SWE-bench rows carry their own environment image
+  timeout_s: 900
+  mem_limit: 4g
+  cpus: 2.0
+  network: false
+trace_dir: out/traces  # overridden per experiment by eval.run_experiment

@@ -1,0 +1,20 @@
+# Live-pilot safety settings. Conservative by default: nothing is allowlisted.
+# Your own repos/forks (owner == the GITHUB_TOKEN user) are allowed implicitly.
+allowlist: []
+#  - repo: someone/small-python-lib          # add repos explicitly, one by one
+#    image: pilot-someone-small-python-lib    # deps preinstalled; sandbox has no network
+#    test_command: python -m pytest -q
+#    ai_policy_reviewed: false                # set true only after READING their policy
+allow_own_repos: true
+own_repo_defaults:
+  image: ablation-fixture:py3.12
+  test_command: python -m pytest -q -p no:cacheprovider
+labels: ["good first issue", "help wanted"]
+max_prs_per_run: 1
+max_prs_per_day: 3
+min_seconds_between_prs: 120
+ignored_after_days: 14
+code_health_scan: false          # optional mode; also needs --enable-code-health-scan
+pending_dir: out/pending
+log_path: out/pilot/publish_log.jsonl
+clone_dir: out/pilot/repos

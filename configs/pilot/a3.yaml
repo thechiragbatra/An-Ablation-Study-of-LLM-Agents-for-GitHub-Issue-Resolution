@@ -1,0 +1,24 @@
+# Live-pilot agent config: A3 with the (local-only) publisher enabled.
+name: a3-pilot
+variant: A3
+model: claude-opus-5-5
+effort: high
+max_tokens: 16000
+K: 3
+D: 2
+N: 1
+seed: 0
+max_localized_files: 5
+critic: {enabled: true, uses_sandbox: false}
+budget: {per_run_usd: 3.00, per_experiment_usd: 300.00}  # placeholders: set from dev-set measurements before preregistration
+sandbox:
+  backend: docker
+  image: ablation-fixture:py3.12  # overridden per repo by the pilot allowlist
+  timeout_s: 900
+  mem_limit: 4g
+  cpus: 2.0
+  network: false
+trace_dir: out/pilot/traces
+publisher:
+  enabled: true   # writes LOCAL pending packages only; see pilot/publish.py
+  pending_dir: out/pending

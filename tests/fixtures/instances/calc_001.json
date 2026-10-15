@@ -1,0 +1,7 @@
+{
+  "instance_id": "fixture__calc-001",
+  "repo": "../calc_repo",
+  "base_commit": "HEAD",
+  "issue_text": "mean() crashes on an empty list\n\nCalling `calc.stats.mean([])` raises `ZeroDivisionError: division by zero`. The docstring says an empty sequence should have mean 0.0, so `mean([])` should return `0.0` instead of crashing.",
+  "test_command": "python -m pytest -q -p no:cacheprovider tests"
+}
